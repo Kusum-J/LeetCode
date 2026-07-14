@@ -1,37 +1,40 @@
 class Solution {
-    public void sortColors(int[] nums) {
+    public void sortColors(int[] nums) 
+    {  
+        //this is the dnf alg
+        //the optimal soln is in notes 
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
 
-        int red = 0, white = 0, blue = 0;
+        while(mid <= high)
+        {
+            if(nums[mid] == 0)
+            {
+                swapInArray(nums, low, mid);
+                low++;
+                mid++;
+            }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0)
-                red++;
-            else if (nums[i] == 1)
-                white++;
+            else if(nums[mid] == 1)
+            {
+                mid++;
+            }
+
             else
-                blue++;
+            {
+                swapInArray(nums, high, mid);
+                high--;
+            }
         }
-
-        int idx = 0;
-
-        for(int i = 0; i < red; i++)
-        {
-            nums[idx] = 0;
-            idx++;
-        }
-
         
-        for(int i = 0; i < white; i++)
-        {
-            nums[idx] = 1;
-            idx++;
-        }
-
-        
-        for(int i = 0; i < blue; i++)
-        {
-            nums[idx] = 2;
-            idx++;
-        }
     }
+
+    public static void swapInArray(int[] arr, int index1, int index2) 
+    {
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
+    }
+
 }
