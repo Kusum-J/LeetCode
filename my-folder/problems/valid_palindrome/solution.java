@@ -23,7 +23,6 @@ class Solution {
             left++;
             ryt--;
         }
-
         return true;
     }
 }
