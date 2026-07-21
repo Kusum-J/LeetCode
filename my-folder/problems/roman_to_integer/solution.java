@@ -26,7 +26,7 @@ class Solution {
 
         while(i < s.length())
         {
-            if(i < s.length() - 1) //do i hv atleast 2 chars left
+            if(i <= s.length() - 2) //do i hv atleast 2 chars left
             {
                 String twoSymbols = s.substring(i, i + 2);
                 if(values.containsKey(twoSymbols))
@@ -43,8 +43,6 @@ class Solution {
                 sum += values.get(oneSymbol);
                 i += 1;
             }
-
-
         }
 
         return sum;
