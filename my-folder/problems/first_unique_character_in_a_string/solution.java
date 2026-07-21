@@ -1,26 +1,17 @@
-class Solution 
-{
+class Solution {
     public int firstUniqChar(String s) 
     {
-        char[] chArray = s.toCharArray();
+        int[] count = new int[26];
 
-        for(int i = 0; i < chArray.length; i++)
+        for(int i = 0; i < s.length(); i++)
         {
-            boolean unique = true;
+            count[s.charAt(i) - 'a']++;
+        }
 
-            for(int j = 0; j < chArray.length; j++)
-            {
-                if(i != j && chArray[i] == chArray[j])
-                {
-                    unique = false;
-                    break;
-                }
-            }
-
-            if(unique)
-            {
+        for(int i = 0; i < s.length(); i++)
+        {
+            if(count[s.charAt(i) - 'a'] == 1)
                 return i;
-            }
         }
 
         return -1;
